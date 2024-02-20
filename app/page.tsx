@@ -3,7 +3,7 @@
 import FullDiv from "react-div-100vh";
 import "@fontsource/dm-sans/index.css";
 import {useEffect, useState} from "react";
-import {initiateUserAuthentication, verifyUser} from "@/app/auth/actions";
+import {initiateUserAuthentication, verifyUser} from "@/app/actions";
 import {useRouter} from "next/navigation";
 
 export default function Home() {

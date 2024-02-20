@@ -1,9 +1,9 @@
 "use client";
 
 import {useEffect, useState} from "react";
-import {createItem, getItems, ItemType} from "@/app/auth/actions";
+import {createItem, getItems, ItemType} from "@/app/actions";
 import {useRouter} from "next/navigation";
-import {QrCodeIcon, Cog6ToothIcon, TrashIcon} from "@heroicons/react/24/outline";
+import {QrCodeIcon, TrashIcon} from "@heroicons/react/24/outline";
 
 export default function Items() {
     const router = useRouter();
@@ -52,9 +52,6 @@ export default function Items() {
 
             {items.map(item => <div key={item.id} className="flex shadow-md">
                 <button className="bg-[#eb6864] hover:bg-[#c85855] rounded-l-md p-3"><QrCodeIcon className="w-6 h-6 text-white"/></button>
-{/*
-                <button className="bg-[#aaa] p-3"><Cog6ToothIcon className="w-6 h-6 text-white"/></button>
-*/}
                 <div className="flex-1 flex pl-3 items-center py-3">
                     {item.name}
                 </div>
