@@ -9,8 +9,8 @@ import {useRouter} from "next/navigation";
 export default function Home() {
     const router = useRouter();
 
-    const [userId, setUserId] = useState(localStorage.uid);
-    const [session, setSession] = useState(localStorage.session);
+    const [userId, setUserId] = useState(localStorage ? localStorage.uid : undefined);
+    const [session, setSession] = useState(localStorage ? localStorage.session : undefined);
 
     useEffect(() => {
         if (userId && session) {
