@@ -9,8 +9,8 @@ import {useRouter} from "next/navigation";
 export default function Home() {
     const router = useRouter();
 
-    const [userId, setUserId] = useState(localStorage ? localStorage.uid : undefined);
-    const [session, setSession] = useState(localStorage ? localStorage.session : undefined);
+    const [userId, setUserId] = useState(typeof window !== "undefined" ? localStorage.uid : undefined);
+    const [session, setSession] = useState(typeof window !== "undefined" ? localStorage.session : undefined);
 
     useEffect(() => {
         if (userId && session) {
@@ -31,11 +31,14 @@ function LandingUI({userId}: {userId: string | undefined}) {
     const submit = async () => {
         const id = await initiateUserAuthentication(!!email ? email : undefined, !!phone ? phone : undefined);
         console.log(id);
-        localStorage.uid = id;
+        if (typeof window !== "undefined") localStorage.uid = id;
         setStage(2);
     }
 
     const verify = async () => {
+        if (typeof window !== "undefined") {
+            return;
+        }
         const session = await verifyUser(localStorage.uid!, code);
         console.log(session);
         localStorage.session = session;

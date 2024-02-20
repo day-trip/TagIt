@@ -134,3 +134,7 @@ export async function createItem(name: string, uid: string): Promise<string> {
 
     return id;
 }
+
+export async function deleteItem(id: string) {
+    await Item.delete((await Item.query("id").eq(id).exec())[0]);
+}

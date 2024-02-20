@@ -50,7 +50,7 @@ export default function Items() {
                 <button disabled={name.length < 2} onClick={addItem} className="py-2 px-5 text-lg font-semibold text-white font-dm bg-[#eb6864] hover:bg-[#c85855] rounded-r-md ring-2 ring-[#eb6864]">Add</button>
             </div>
 
-            {items.map(item => <div key={item.id} className="flex shadow-md">
+            {items.map((item, index) => <div key={index} className="flex shadow-md">
                 <button className="bg-[#eb6864] hover:bg-[#c85855] rounded-l-md p-3"><QrCodeIcon className="w-6 h-6 text-white"/></button>
                 <div className="flex-1 flex pl-3 items-center py-3">
                     {item.name}
